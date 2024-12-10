@@ -1,0 +1,22 @@
+{
+    "name": "zhujinkui/ddxjd",
+    "license": "MIT",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Zhujinkui\\DdxJd\\": "src/"
+        },
+        "files": [
+            "src/Tools/function.php"
+        ]
+    },
+    "authors": [
+        {
+            "name": "zhujinkui.com@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.0",
+        "yumufeng/curl-swoole": "^1.0"
+    }
+}
