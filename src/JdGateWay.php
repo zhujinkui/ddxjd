@@ -33,7 +33,7 @@ class JdGateWay
      * @var
      */
     protected mixed $apikey;
-    protected mixed $elite_id;
+    protected mixed $union_id;
 
     protected JdFactory $jd_factory;
 
@@ -41,7 +41,7 @@ class JdGateWay
     public function __construct(array $config, JdFactory $JdFactory)
     {
         $this->apikey     = $config['apikey'];
-        $this->elite_id   = $config['elite_id'];
+        $this->union_id   = $config['union_id'];
         $this->jd_factory = $JdFactory;
     }
 

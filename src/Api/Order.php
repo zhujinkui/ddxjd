@@ -19,13 +19,13 @@ use Zhujinkui\DdxJd\JdGateWay;
 class Order extends JdGateWay
 {
     /**
-     * 订单详情
+     * 搜索/详情
      *
-     * @param $client_params
+     * @param array $client_params
      *
      * @return bool|mixed|string
      */
-    public function orderDetailGet($client_params): mixed
+    public function queryOrderList(array $client_params = [])
     {
         $params = [
             'apikey' => $this->apikey,
@@ -35,26 +35,6 @@ class Order extends JdGateWay
             $params = array_merge($params, $client_params);
         }
 
-        return $this->send('/pdd/order_detail', $params, "POST");
-    }
-
-    /**
-     * 订单列表
-     *
-     * @param $client_params
-     *
-     * @return mixed
-     */
-    public function orderListIncrementGet($client_params): mixed
-    {
-        $params = [
-            'apikey' => $this->apikey,
-        ];
-
-        if (!empty($client_params)) {
-            $params = array_merge($params, $client_params);
-        }
-
-        return $this->send('/pdd/orderlist', $params, "POST");
+        return $this->send('/jd/order_details2', $params, "POST");
     }
 }

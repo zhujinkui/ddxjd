@@ -3,11 +3,13 @@
 namespace Zhujinkui\DdxJd;
 
 use Zhujinkui\DdxJd\Api\Goods;
+use Zhujinkui\DdxJd\Api\Order;
 use Exception;
 
 /**
  * @package Zhujinkui\DdxJd
  * @property Goods $goods
+ * @property Order $order
  */
 class JdFactory
 {
@@ -27,7 +29,6 @@ class JdFactory
 
         return $this;
     }
-
 
     /**
      *

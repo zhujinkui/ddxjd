@@ -28,3 +28,21 @@ if (!function_exists('trim_zero')) {
         return rtrim(rtrim(sprintf("%.10f", $money), '0'), '.');
     }
 }
+
+if (!function_exists('validate_time_format')) {
+    /**
+     * 验证时间格式
+     *
+     * @param $time
+     * @param $format
+     *
+     * @return bool
+     */
+    function validate_time_format($time, $format): bool
+    {
+        $d = \DateTime::createFromFormat($format, $time);
+        return $d && $d->format($format) === $time;
+    }
+}
+
+

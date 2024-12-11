@@ -18,7 +18,14 @@ use Zhujinkui\DdxJd\JdGateWay;
  */
 class Goods extends JdGateWay
 {
-    public function queryGoodsList(array $client_params = []): mixed
+    /**
+     * 商品列表
+     *
+     * @param array $client_params
+     *
+     * @return bool|mixed|string
+     */
+    public function queryGoodsList(array $client_params = [])
     {
         $params = [
             'apikey' => $this->apikey,
@@ -29,5 +36,46 @@ class Goods extends JdGateWay
         }
 
         return $this->send('/jd/query_jingfen_goods', $params, "POST");
+    }
+
+    /**
+     * 搜索/详情
+     *
+     * @param array $client_params
+     *
+     * @return bool|mixed|string
+     */
+    public function queryGoodsDetail(array $client_params = [])
+    {
+        $params = [
+            'apikey' => $this->apikey,
+        ];
+
+        if (!empty($client_params)) {
+            $params = array_merge($params, $client_params);
+        }
+
+        return $this->send('/jd/query_goods', $params, "POST");
+    }
+
+    /**
+     * 转链
+     *
+     * @param array $client_params
+     *
+     * @return bool|mixed|string
+     */
+    public function urlPrivilege(array $client_params = [])
+    {
+        $params = [
+            'apikey'  => $this->apikey,
+            'unionId' => $this->union_id,
+        ];
+
+        if (!empty($client_params)) {
+            $params = array_merge($params, $client_params);
+        }
+
+        return $this->send('/jd/url_privilege', $params, "POST");
     }
 }
